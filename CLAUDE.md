@@ -8,7 +8,7 @@ The site is a design-file canvas: a splash screen, then a pannable/zoomable worl
 
 ## Layout of `src/`
 
-- `content/` — the single source of truth for all copy and data. Views and the layers panel are derived from it; never hard-code copy in components.
+- `content/` — the single source of truth for all copy and data. Views and the layers panel are derived from it; never hard-code copy in components. Client components may import only `content/views.ts` and `content/profile.ts`; pass anything else down from the server as props.
 - `components/ui/` — server-safe primitives (Artboard, Frame, Pill, Avatar markup).
 - `components/views/` — Server Components that render each view's artboards.
 - `components/canvas/` — the one client engine (camera, tools, drawing, chrome). Camera state lives in refs and is applied imperatively; React only re-renders on discrete state changes.
