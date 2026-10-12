@@ -137,7 +137,7 @@
 }
 
 .splash[data-risen] .avatarSlot {
-  animation: portraitRise 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation: portraitRise 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 .avatar {
@@ -222,7 +222,7 @@
 
 .splash[data-risen] .bubbleBox {
   opacity: 1;
-  animation: bubblePop 0.35s var(--ease-spring) 0.9s both;
+  animation: bubblePop 0.35s var(--ease-spring) 0.55s both;
 }
 
 .bubbleGlass {
