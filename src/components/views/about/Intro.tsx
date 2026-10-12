@@ -14,11 +14,11 @@ export function Intro() {
             {profile.initials}
           </span>
           <Artboard.Header pill="About Me" aside="Portfolio · 2026" />
-          <h1 className={s.name}>
+          <h2 className={s.name}>
             AMITA
             <br />
             HENDRE<span className={s.dot}>.</span>
-          </h1>
+          </h2>
           <div className={s.roleLine}>
             <span>{profile.role}</span>
             <span className={s.roleRule} />
