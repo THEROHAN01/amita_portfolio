@@ -1,0 +1,104 @@
+.notice {
+  composes: glass from "./chrome.module.css";
+  position: absolute;
+  left: 66px;
+  top: 74px;
+  z-index: 13;
+  width: 320px;
+  padding: 14px 16px;
+  border-radius: 20px;
+}
+
+.noticeTitle {
+  margin-bottom: 6px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+}
+
+.noticeBody {
+  margin-bottom: 10px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  text-wrap: pretty;
+  color: color-mix(in srgb, var(--color-text) 75%, transparent);
+}
+
+.gotIt {
+  composes: primary from "./chrome.module.css";
+  padding: 6px 10px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+/* Bottom-left stack: toast above the send/clear actions. */
+.dock {
+  position: absolute;
+  left: 66px;
+  bottom: 14px;
+  z-index: 13;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.dock > * {
+  pointer-events: auto;
+}
+
+.toast {
+  composes: caps from "./chrome.module.css";
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: var(--color-text);
+  color: var(--paper);
+  box-shadow: var(--shadow-lg);
+}
+
+.tick {
+  color: var(--color-accent);
+}
+
+.swatch {
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--color-divider);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.send {
+  composes: primary from "./chrome.module.css";
+  height: 32px;
+  padding: 0 13px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+}
+
+.clear {
+  composes: glass caps from "./chrome.module.css";
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: var(--color-text);
+}
+
+.clear:hover {
+  color: var(--color-accent-700);
+  border-color: var(--color-accent);
+}

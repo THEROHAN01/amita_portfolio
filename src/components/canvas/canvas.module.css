@@ -1,0 +1,146 @@
+.app {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--canvas);
+  user-select: none;
+}
+
+/* Below 900px the single-column page (MobileHome) takes over. */
+@media (max-width: 899px) {
+  .app {
+    display: none;
+  }
+}
+
+@keyframes gridDrift {
+  to {
+    background-position: 32px 32px, 32px 32px;
+  }
+}
+
+.viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  touch-action: none;
+  background-color: var(--canvas);
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+  animation: gridDrift 9s linear infinite;
+}
+
+.glow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 700px;
+  height: 700px;
+  margin: -350px 0 0 -350px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-accent) 30%, transparent) 0%,
+    color-mix(in srgb, var(--color-accent) 10%, transparent) 40%,
+    transparent 70%
+  );
+  filter: blur(60px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Selection chrome is drawn in ink; visitor markup in the accent so it reads on light boards too. */
+.world {
+  --mark: var(--ink);
+  --markup: var(--color-accent-600);
+  --inv: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+/* ---------- Visitor markup ---------- */
+.strokes {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+  pointer-events: none;
+  fill: none;
+  stroke: var(--markup);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.markRect,
+.markFrame,
+.markText {
+  position: absolute;
+}
+
+.markRect {
+  width: 140px;
+  height: 140px;
+  background: var(--markup);
+}
+
+.markFrame {
+  width: 320px;
+  height: 200px;
+  border: 2px dashed var(--markup);
+  background: color-mix(in srgb, var(--markup) 6%, transparent);
+}
+
+.markFrameTag {
+  position: absolute;
+  left: -2px;
+  top: -22px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--markup);
+}
+
+.markText {
+  width: 300px;
+  padding: 0 0 4px;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid var(--markup);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 34px;
+  letter-spacing: -0.02em;
+  color: var(--markup);
+  outline: none;
+}
+
+/* ---------- Selection ---------- */
+.ring {
+  position: absolute;
+  border: calc(1.6px * var(--inv)) solid var(--mark);
+  pointer-events: none;
+}
+
+.ringLabel {
+  position: absolute;
+  left: 0;
+  top: calc(-19px * var(--inv));
+  padding: calc(2px * var(--inv)) calc(5px * var(--inv));
+  background: var(--mark);
+  color: var(--paper);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: calc(11px * var(--inv));
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}

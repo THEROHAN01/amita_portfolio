@@ -1,0 +1,86 @@
+.guide {
+  --bubble-max: 240px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 40;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* The avatar's centre sits on the guide's origin; the bubble flows to one side. */
+.row {
+  position: absolute;
+  top: -36px;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.guide[data-side="right"] .row {
+  left: -36px;
+  flex-direction: row;
+}
+
+.guide[data-side="left"] .row {
+  right: -36px;
+  flex-direction: row-reverse;
+}
+
+.guide[data-board] .row {
+  align-items: flex-start;
+}
+
+.portrait {
+  position: relative;
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 35%, #3a2a33, #151215);
+  box-shadow:
+    0 0 0 2px var(--plum-500),
+    var(--shadow-lg);
+}
+
+.avatar {
+  position: absolute;
+  left: -10.8px;
+  top: -15.6px;
+  width: 92.2px;
+}
+
+@keyframes bubbleIn {
+  from {
+    opacity: 0;
+  }
+}
+
+.bubble {
+  composes: glass from "../canvas/chrome.module.css";
+  max-width: var(--bubble-max);
+  padding: 10px 14px;
+  border-radius: 6px;
+  color: var(--color-text);
+  font-size: 13px;
+  line-height: 1.45;
+  text-align: left;
+  text-wrap: pretty;
+  pointer-events: auto;
+  animation: bubbleIn 0.25s ease 0.12s both;
+}
+
+.title {
+  display: block;
+  margin-bottom: 3px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c46bb5;
+}
