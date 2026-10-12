@@ -1,0 +1,390 @@
+/* ---------- Hello ---------- */
+.helloArrow {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.helloArrow span {
+  position: absolute;
+  right: -60px;
+  bottom: -170px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 560px;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: var(--plum-400);
+  opacity: 0.5;
+}
+
+.hello {
+  position: relative;
+  margin-top: auto;
+  font-size: 150px;
+  line-height: 0.8;
+  letter-spacing: -0.055em;
+  color: #fff;
+}
+
+.helloSoft {
+  color: var(--plum-200);
+}
+
+/* ---------- Direct ---------- */
+.channels {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.channel {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 96px 1fr auto;
+  background: #fff;
+  color: var(--plum-900);
+  box-shadow: 0 1px 0 var(--plum-200);
+}
+
+a.channel:hover {
+  background: var(--plum-100);
+}
+
+.channelIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.tone1 {
+  background: var(--plum-500);
+}
+.tone2 {
+  background: var(--plum-700);
+}
+.tone3 {
+  background: var(--plum-900);
+}
+
+.channelText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 26px;
+}
+
+.channelLabel,
+.socialLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--plum-600);
+}
+
+.channelValue {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.channelArrow {
+  display: flex;
+  align-items: center;
+  padding: 0 26px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 26px;
+  color: var(--plum-400);
+}
+
+/* ---------- Elsewhere ---------- */
+.socials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+  background: var(--plum-500);
+  color: #fff;
+}
+
+a.social:hover {
+  background: var(--plum-600);
+  color: #fff;
+}
+
+.socialPending {
+  background: var(--plum-800);
+  border: 2px dashed var(--plum-600);
+  color: var(--plum-300);
+}
+
+.socialPending:hover {
+  background: var(--plum-700);
+}
+
+.socialTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.socialMark {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 26px;
+}
+
+.socialPending .socialMark,
+.socialPending .socialHandle {
+  color: var(--plum-400);
+}
+
+.social .socialLabel {
+  color: var(--plum-100);
+}
+
+.socialPending .socialLabel {
+  color: var(--plum-300);
+}
+
+.socialName {
+  margin-top: 10px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.socialHandle {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--plum-100);
+  word-break: break-word;
+}
+
+/* ---------- Availability & message ---------- */
+.availability {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.available {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: var(--plum-500);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.availableDot {
+  width: 9px;
+  height: 9px;
+  background: #fff;
+  box-shadow: 0 0 0 4px var(--plum-400);
+}
+
+.engagement {
+  display: flex;
+  gap: 6px;
+}
+
+.engagement span {
+  padding: 6px 10px;
+  background: var(--plum-100);
+  color: var(--plum-700);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.messageTitle {
+  margin-top: 22px;
+  font-size: 52px;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 0;
+  cursor: default;
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.field > span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--plum-600);
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 13px 14px;
+  font-size: 15px;
+  background: #fff;
+  border: 2px solid var(--plum-200);
+  color: var(--plum-900);
+  caret-color: var(--plum-500);
+}
+
+.field input:hover,
+.field textarea:hover {
+  border-color: var(--plum-300);
+}
+
+.field input:focus-visible,
+.field textarea:focus-visible {
+  border-color: var(--plum-500);
+  outline: none;
+}
+
+.grow {
+  flex: 1;
+  min-height: 0;
+}
+
+.grow textarea {
+  flex: 1;
+  min-height: 70px;
+  resize: none;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.error {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--plum-600);
+}
+
+.cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--plum-700);
+}
+
+.cv:hover {
+  color: var(--plum-500);
+}
+
+.submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: var(--plum-500);
+  color: #fff;
+  border: 0;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.submit:hover {
+  background: var(--plum-600);
+}
+
+.submit:active {
+  background: var(--plum-700);
+}
+
+.done {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.doneIcon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--plum-500);
+}
+
+.doneTitle {
+  font-size: 36px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.doneBody {
+  max-width: 560px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--plum-body);
+}
+
+.ghost {
+  align-self: flex-start;
+  padding: 10px 14px;
+  background: transparent;
+  border: 2px solid var(--plum-300);
+  color: var(--plum-700);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ghost:hover {
+  border-color: var(--plum-500);
+}

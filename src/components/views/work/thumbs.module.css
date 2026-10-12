@@ -1,0 +1,64 @@
+/* Mock artwork for frames without photography. Flat blocks drawn from the plum ramp. */
+.thumb {
+  --t-ink: var(--plum-900);
+  --t-acc: var(--plum-500);
+  --t-paper: var(--plum-50);
+  --t-surf: var(--plum-100);
+  --t-line: var(--plum-200);
+  --t-soft: var(--plum-300);
+  --t-mid: var(--plum-400);
+
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--t-surf);
+}
+
+.abs {
+  position: absolute;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+}
+
+.bar {
+  height: 3px;
+  background: var(--t-line);
+}
+
+.ink {
+  background: var(--t-ink);
+}
+.acc {
+  background: var(--t-acc);
+}
+.paper {
+  background: var(--t-paper);
+}
+.boxed {
+  background: var(--t-paper);
+  border: 1px solid var(--t-line);
+}
+
+.word {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  font-size: 12px;
+  border: 1px solid var(--t-acc);
+  color: var(--t-acc);
+}

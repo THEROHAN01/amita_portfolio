@@ -1,0 +1,93 @@
+.awards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.award {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 22px;
+  align-items: end;
+  padding: 22px 24px;
+  background: var(--plum-800);
+  border-left: 6px solid var(--plum-400);
+}
+
+.award + .award {
+  background: var(--plum-700);
+  border-left-color: var(--plum-300);
+}
+
+.year {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 100px;
+  line-height: 0.78;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--plum-300);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1.1;
+}
+
+.org {
+  margin-top: 8px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--plum-200);
+}
+
+.note {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--plum-100);
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: auto 0 0;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  padding-top: 14px;
+  border-top: 3px solid var(--plum-300);
+}
+
+.metric:nth-child(2) {
+  border-color: var(--plum-400);
+}
+.metric:nth-child(3) {
+  border-color: var(--plum-500);
+}
+.metric:nth-child(4) {
+  border-color: var(--plum-600);
+}
+
+.value {
+  order: -1;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 52px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.label {
+  margin-top: 8px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--plum-300);
+}

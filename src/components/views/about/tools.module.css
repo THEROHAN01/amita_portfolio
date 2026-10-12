@@ -1,0 +1,97 @@
+.grid {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(5, 1fr);
+  gap: 10px;
+}
+
+/* Group variants: tile fill, text and code colour */
+.adobe {
+  background: var(--plum-900);
+  color: #fff;
+  --code: var(--plum-300);
+}
+.design {
+  background: var(--plum-600);
+  color: #fff;
+  --code: var(--plum-200);
+}
+.docs {
+  background: #fff;
+  border: 2px solid var(--plum-200);
+  --code: var(--plum-500);
+}
+.ai {
+  background: var(--plum-200);
+  --code: var(--plum-600);
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px 14px;
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px var(--plum-200);
+}
+
+.tileHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--code);
+}
+
+.aiBadge {
+  padding: 2px 6px;
+  background: var(--plum-500);
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+}
+
+.abbr {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 46px;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+.name {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.legend {
+  display: flex;
+  gap: 22px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--plum-700);
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.swatch {
+  width: 14px;
+  height: 14px;
+}

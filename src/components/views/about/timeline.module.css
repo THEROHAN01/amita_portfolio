@@ -1,0 +1,248 @@
+/* Every row shares the 420px label column + flexible lane. */
+.track {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 24px;
+}
+
+.lane {
+  position: relative;
+}
+
+/* ---------- Stage row ---------- */
+.stagesRow {
+  height: 140px;
+}
+
+.span {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+}
+
+.spanYears {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 76px;
+  line-height: 0.8;
+  letter-spacing: -0.045em;
+}
+
+.arrow {
+  color: var(--plum-400);
+}
+
+.now {
+  color: var(--plum-500);
+}
+
+.spanRole {
+  margin-top: 12px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--plum-600);
+}
+
+.stage {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 12px 14px;
+  overflow: hidden;
+  border-top: 5px solid;
+  cursor: pointer;
+}
+
+.stage:hover {
+  outline: 2px solid var(--plum-500);
+  outline-offset: 2px;
+}
+
+.stage.tone1 {
+  background: var(--plum-100);
+  border-color: var(--plum-300);
+}
+.stage.tone2 {
+  background: var(--plum-200);
+  border-color: var(--plum-400);
+}
+.stage.tone3 {
+  background: var(--plum-300);
+  border-color: var(--plum-600);
+}
+.stage.tone4 {
+  background: var(--plum-500);
+  border-color: var(--plum-800);
+  color: #fff;
+}
+
+.stageMeta {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--plum-600);
+}
+
+.stageTitle {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.stageBrief {
+  font-size: 12px;
+  line-height: 1.45;
+  text-wrap: pretty;
+  color: var(--plum-body);
+}
+
+.tone4 .stageMeta {
+  color: var(--plum-100);
+}
+.tone4 .stageBrief {
+  color: var(--plum-50);
+}
+
+/* ---------- Year axis ---------- */
+.axis {
+  height: 32px;
+  border-bottom: 2px solid var(--plum-900);
+}
+
+.year {
+  position: absolute;
+  bottom: 8px;
+  padding-left: 6px;
+  border-left: 2px solid var(--plum-400);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: var(--plum-800);
+}
+
+.nowTag {
+  position: absolute;
+  right: 0;
+  bottom: 6px;
+  padding: 3px 7px;
+  background: var(--plum-500);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ---------- Role rows ---------- */
+.roles {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.role {
+  flex: 1;
+  cursor: pointer;
+}
+
+.role + .role {
+  border-top: 1px solid var(--plum-100);
+}
+
+.role:hover,
+.current {
+  background: var(--plum-50);
+}
+
+.who {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: center;
+}
+
+.badge {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.company {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.roleMeta {
+  margin-top: 4px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--plum-600);
+}
+
+.current .roleMeta {
+  color: var(--plum-500);
+}
+
+.gantt {
+  position: relative;
+  background-image: linear-gradient(to right, var(--plum-200) 1px, transparent 1px);
+  background-size: var(--year) 100%;
+  background-repeat: repeat-x;
+}
+
+.bar {
+  position: absolute;
+  top: 50%;
+  height: 20px;
+  transform: translateY(-50%);
+}
+
+.current .bar {
+  box-shadow: 0 0 0 5px var(--plum-200);
+}
+
+.note {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  line-height: 1.45;
+  text-wrap: pretty;
+  color: var(--plum-body);
+}
+
+/* Tone fills for badges and bars */
+.badge.tone1,
+.bar.tone1 {
+  background: var(--plum-300);
+}
+.badge.tone2,
+.bar.tone2 {
+  background: var(--plum-400);
+}
+.badge.tone3,
+.bar.tone3 {
+  background: var(--plum-600);
+}
+.badge.tone4,
+.bar.tone4 {
+  background: var(--plum-500);
+}

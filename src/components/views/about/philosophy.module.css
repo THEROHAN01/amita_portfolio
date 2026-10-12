@@ -1,0 +1,82 @@
+.backdrop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.backdrop span {
+  position: absolute;
+  right: -40px;
+  top: -90px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 400px;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: var(--plum-400);
+  opacity: 0.55;
+}
+
+.headline {
+  position: relative;
+  margin-top: 28px;
+  font-size: 72px;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+
+.soft {
+  color: var(--plum-200);
+}
+
+.principles {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: auto 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.principle {
+  padding: 18px;
+  color: #fff;
+}
+
+.principle:nth-child(1) {
+  background: var(--plum-600);
+}
+.principle:nth-child(2) {
+  background: var(--plum-700);
+}
+.principle:nth-child(3) {
+  background: var(--plum-800);
+}
+
+.num {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 72px;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  color: var(--plum-300);
+}
+
+.title {
+  margin-top: 18px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+.body {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.55;
+  text-wrap: pretty;
+  color: var(--plum-100);
+}

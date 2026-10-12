@@ -1,0 +1,104 @@
+/* Work boards label their number in plum and focus-ring in plum. */
+.view {
+  --label-num: var(--plum-500);
+  --board-focus: var(--plum-500);
+}
+
+.grid {
+  display: flex;
+}
+
+.gridInner {
+  flex: 1;
+  display: grid;
+  gap: 18px;
+}
+
+.frame {
+  display: flex;
+  min-height: 0;
+  background: #fff;
+  box-shadow: var(--plum-shadow);
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.frame:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--plum-shadow-hover);
+}
+
+.stack {
+  flex-direction: column;
+}
+
+.stack .caption {
+  border-top: 3px solid var(--plum-500);
+}
+
+.row .caption {
+  width: 40%;
+  border-left: 1px solid var(--plum-200);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.photo {
+  position: relative;
+  aspect-ratio: 1867 / 1467;
+  overflow: hidden;
+  background: var(--plum-100);
+}
+
+.photoImg {
+  object-fit: cover;
+}
+
+.caption {
+  padding: 14px 16px;
+}
+
+.name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 19px;
+  line-height: 1.15;
+}
+
+.meta,
+.metaMuted,
+.link {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.meta {
+  margin-top: 3px;
+  color: var(--plum-600);
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 3px;
+}
+
+.metaMuted {
+  color: color-mix(in srgb, var(--plum-900) 50%, transparent);
+}
+
+.link {
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--plum-700);
+}
+
+.link:hover {
+  color: var(--plum-500);
+}
