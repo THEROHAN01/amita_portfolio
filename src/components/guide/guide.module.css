@@ -62,6 +62,10 @@
 
 .bubble {
   composes: glass from "../canvas/chrome.module.css";
+  /* The design's guide bubble omits the lower inner edge of the glass recipe. */
+  box-shadow:
+    var(--shadow-lg),
+    inset 0 1px 0 var(--glass-inner);
   max-width: var(--bubble-max);
   padding: 10px 14px;
   border-radius: 6px;

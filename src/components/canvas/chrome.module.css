@@ -2,8 +2,9 @@
 .glass {
   border: 1px solid var(--glass-line);
   background: var(--glass-grad), var(--glass);
+  /* Standard property only: Lightning CSS adds -webkit- itself. Writing both
+     makes it keep just the prefixed one, which Chrome ignores. */
   backdrop-filter: blur(30px) saturate(1.8);
-  -webkit-backdrop-filter: blur(30px) saturate(1.8);
   box-shadow:
     var(--shadow-lg),
     inset 0 1px 0 var(--glass-inner),
