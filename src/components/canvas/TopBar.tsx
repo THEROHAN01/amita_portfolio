@@ -1,7 +1,7 @@
 "use client";
 
 import { Redo2, Undo2 } from "lucide-react";
-import { views } from "@/content/canvas";
+import { views } from "@/content/views";
 import { profile } from "@/content/profile";
 import { useCanvas } from "./context";
 import s from "./topbar.module.css";

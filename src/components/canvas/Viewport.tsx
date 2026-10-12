@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, type PointerEvent as ReactPointerEvent, type ReactNode, type RefObject } from "react";
-import { WORLD_SIZE } from "@/content/canvas";
+import { WORLD_SIZE } from "@/content/views";
 import type { ViewId } from "@/content/types";
 import { sampleColor } from "./color";
 import { useCanvas } from "./context";

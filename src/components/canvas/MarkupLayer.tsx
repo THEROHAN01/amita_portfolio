@@ -1,7 +1,7 @@
 "use client";
 
 import { memo, type RefObject } from "react";
-import { WORLD_SIZE } from "@/content/canvas";
+import { WORLD_SIZE } from "@/content/views";
 import type { MarkupObject, Point } from "./state";
 import s from "./canvas.module.css";
 

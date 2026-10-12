@@ -2,7 +2,7 @@
 
 import { Check, Send } from "lucide-react";
 import { useState } from "react";
-import { views } from "@/content/canvas";
+import { views } from "@/content/views";
 import type { LayerNode } from "@/content/types";
 import { useCanvas } from "./context";
 import { markupLabel, plural } from "./state";

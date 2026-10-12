@@ -3,12 +3,6 @@ import { contactBoards } from "./contact";
 import type { Box, LayerNode, ViewId } from "./types";
 import { workBoards } from "./work";
 
-export const views: { id: ViewId; label: string }[] = [
-  { id: "work", label: "Work" },
-  { id: "about", label: "About Me" },
-  { id: "contact", label: "Contact" },
-];
-
 const label = (b: { num: string; title: string }) => `${b.num} ${b.title}`;
 
 /** Layers panel tree for each view — derived, never hand-maintained. */
@@ -50,5 +44,3 @@ export const worlds: Record<ViewId, Box> = {
   about: bounds(Object.values(aboutBoards).map((b) => b.box)),
   contact: bounds(Object.values(contactBoards).map((b) => b.box)),
 };
-
-export const WORLD_SIZE = { w: 4200, h: 3600 } as const;

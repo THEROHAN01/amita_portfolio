@@ -2,9 +2,8 @@
 
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useLayoutEffect, useMemo, useReducer, useRef, useState, type ReactNode } from "react";
-import { worlds } from "@/content/canvas";
 import { profile } from "@/content/profile";
-import type { LayerNode, ViewId } from "@/content/types";
+import type { Box, LayerNode, ViewId } from "@/content/types";
 import { Camera } from "./camera";
 import { CanvasContext, type CanvasContextValue } from "./context";
 import { ChromeOverlays } from "./ChromeOverlays";
@@ -25,11 +24,13 @@ interface CanvasAppProps {
   /** Server-rendered artboards for each view. */
   views: Record<ViewId, ReactNode>;
   layers: Record<ViewId, LayerNode[]>;
+  /** Region "Fit" frames for each view (computed on the server). */
+  worlds: Record<ViewId, Box>;
   /** Overlay rendered above the canvas (the splash). */
   children?: ReactNode;
 }
 
-export function CanvasApp({ views, layers, children }: CanvasAppProps) {
+export function CanvasApp({ views, layers, worlds, children }: CanvasAppProps) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [camera] = useState(() => new Camera());
 
@@ -47,7 +48,7 @@ export function CanvasApp({ views, layers, children }: CanvasAppProps) {
   const fitAll = useCallback(() => {
     dispatch({ type: "select", sel: null });
     camera.fit(worlds[latest.current.view], 60, true);
-  }, [camera]);
+  }, [camera, worlds]);
 
   const actions = useMemo<CanvasContextValue["actions"]>(
     () => ({
@@ -82,7 +83,7 @@ export function CanvasApp({ views, layers, children }: CanvasAppProps) {
   // Frame the active view whenever it changes (and on first paint).
   useLayoutEffect(() => {
     camera.fit(worlds[state.view], 60, false);
-  }, [camera, state.view]);
+  }, [camera, state.view, worlds]);
 
   // Re-frame on resize unless the visitor is inspecting something.
   useEffect(() => {
@@ -98,7 +99,7 @@ export function CanvasApp({ views, layers, children }: CanvasAppProps) {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", onResize);
     };
-  }, [camera]);
+  }, [camera, worlds]);
 
   // Toasts dismiss themselves.
   useEffect(() => {
