@@ -1,0 +1,274 @@
+@keyframes splashIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+}
+
+@keyframes pulseA {
+  50% {
+    transform: translate(-50%, -50%) scale(1.18);
+    opacity: 0.8;
+  }
+}
+
+@keyframes pulseB {
+  50% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.65;
+  }
+}
+
+.splash {
+  /* Name column reserved for the avatar, as a share of its 96vh stage height. */
+  --gap: calc(96vh * 0.23);
+  position: absolute;
+  inset: 0;
+  z-index: 300;
+  overflow: hidden;
+  background: #151215;
+  color: #f3ece6;
+  animation: splashIn 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.glow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 620px;
+  height: 620px;
+  margin: -310px 0 0 -310px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-accent) 55%, transparent) 0%,
+    color-mix(in srgb, var(--color-accent) 18%, transparent) 38%,
+    transparent 70%
+  );
+  filter: blur(50px);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.pulseA,
+.pulseB {
+  position: absolute;
+  left: 50%;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.pulseA {
+  top: 46%;
+  width: 78vw;
+  height: 78vw;
+  max-width: 1100px;
+  max-height: 1100px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-accent) 42%, transparent) 0%, transparent 66%);
+  filter: blur(70px);
+  transform: translate(-50%, -50%);
+  opacity: 0.55;
+  animation: pulseA 6.5s ease-in-out infinite;
+}
+
+.pulseB {
+  top: 52%;
+  width: 46vw;
+  height: 46vw;
+  max-width: 640px;
+  max-height: 640px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-muted) 55%, transparent) 0%, transparent 70%);
+  filter: blur(60px);
+  transform: translate(-50%, -50%) scale(1.1);
+  opacity: 0.4;
+  animation: pulseB 8s ease-in-out infinite;
+}
+
+.stage {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 96vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.avatarSlot {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+}
+
+.avatar {
+  height: 100%;
+}
+
+/* ---------- The name ---------- */
+.fish {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 35.6%;
+  margin-top: -0.5em;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--gap) minmax(0, 1fr);
+  align-items: end;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: calc((100vw - 80px - var(--gap)) / 6.2);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-shadow: 0 0 28px rgb(255 214 180 / 0.35);
+  white-space: nowrap;
+}
+
+.first,
+.last {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.first {
+  justify-content: flex-end;
+}
+
+.letter {
+  display: inline-block;
+  transform-origin: 50% 100%;
+  transition:
+    font-weight 0.38s ease,
+    color 0.25s ease;
+}
+
+/* ---------- Speech bubble ---------- */
+.bubble {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  z-index: 2;
+  margin-bottom: 18px;
+  transform-origin: 100% 100%;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s var(--ease-spring);
+  pointer-events: none;
+}
+
+.bubble[data-asleep] {
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+.bubbleBox {
+  position: relative;
+  display: block;
+  isolation: isolate;
+  padding: 12px 22px;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: clamp(14px, 1.25vw, 20px);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: none;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 0.25);
+  filter: drop-shadow(0 10px 22px rgb(0 0 0 / 0.28));
+}
+
+.bubbleGlass {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: calc(100% + 12px);
+  height: calc(100% + 2px);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+}
+
+.bubbleSvg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  overflow: visible;
+}
+
+@keyframes textIn {
+  from {
+    opacity: 0;
+  }
+}
+
+.bubbleText {
+  display: inline-block;
+  animation: textIn 0.22s ease;
+}
+
+/* ---------- Name in other scripts ---------- */
+.scripts {
+  position: absolute;
+  right: 40px;
+  top: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  text-align: right;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
+}
+
+.scripts[data-shown] {
+  opacity: 1;
+  transform: none;
+}
+
+.scriptName {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(18px, 2vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.scriptLang {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgb(243 236 230 / 0.62);
+}
+
+/* Keyboard affordance — invisible until focused. */
+.enter {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  z-index: 5;
+  translate: -50% 0;
+  padding: 10px 16px;
+  background: var(--color-accent);
+  color: #fff;
+  border: 0;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.enter:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
