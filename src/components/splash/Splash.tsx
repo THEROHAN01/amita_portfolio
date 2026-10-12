@@ -84,7 +84,12 @@ export function Splash() {
     const img = avatar.current?.querySelector("img");
     const beat = new Promise((r) => setTimeout(r, PORTRAIT_DELAY));
     const decoded = img ? img.decode().catch(() => undefined) : Promise.resolve();
-    Promise.all([beat, decoded]).then(() => alive && setRisen(true));
+    Promise.all([beat, decoded]).then(() => {
+      if (!alive) return;
+      setRisen(true);
+      // Loaded on demand so the synth never touches the initial bundle.
+      import("@/lib/whoosh").then((m) => m.playWhoosh()).catch(() => undefined);
+    });
     return () => {
       alive = false;
     };
