@@ -14,7 +14,7 @@ const SCROLL_TO_ENTER = 90;
 const SWIPE_TO_ENTER = 60;
 const ENTER_KEYS = new Set(["ArrowDown", "PageDown", " ", "Enter"]);
 /** The name holds the stage alone for this long before the portrait rises. */
-const PORTRAIT_DELAY = 1000;
+const PORTRAIT_DELAY = 400;
 
 /**
  * Opening screen over the canvas. Scroll (or swipe / press ↓) to enter; a
