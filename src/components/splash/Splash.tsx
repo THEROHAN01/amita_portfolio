@@ -13,6 +13,8 @@ import s from "./splash.module.css";
 const SCROLL_TO_ENTER = 90;
 const SWIPE_TO_ENTER = 60;
 const ENTER_KEYS = new Set(["ArrowDown", "PageDown", " ", "Enter"]);
+/** The name holds the stage alone for this long before the portrait rises. */
+const PORTRAIT_DELAY = 1000;
 
 /**
  * Opening screen over the canvas. Scroll (or swipe / press ↓) to enter; a
@@ -21,6 +23,7 @@ const ENTER_KEYS = new Set(["ArrowDown", "PageDown", " ", "Enter"]);
 export function Splash() {
   const { dispatch } = useCanvas();
   const [gone, setGone] = useState(false);
+  const [risen, setRisen] = useState(false);
   const root = useRef<HTMLDivElement>(null);
   const glow = useRef<HTMLDivElement>(null);
   const avatar = useRef<HTMLDivElement>(null);
@@ -74,6 +77,19 @@ export function Splash() {
     };
   }, [dispatch]);
 
+  // Name first; the portrait rises once the beat has passed *and* the image is decoded,
+  // so it never slides in half-loaded on a slow connection.
+  useEffect(() => {
+    let alive = true;
+    const img = avatar.current?.querySelector("img");
+    const beat = new Promise((r) => setTimeout(r, PORTRAIT_DELAY));
+    const decoded = img ? img.decode().catch(() => undefined) : Promise.resolve();
+    Promise.all([beat, decoded]).then(() => alive && setRisen(true));
+    return () => {
+      alive = false;
+    };
+  }, []);
+
   const followGlow = (e: MouseEvent<HTMLDivElement>) => {
     const g = glow.current;
     if (!g) return;
@@ -88,6 +104,7 @@ export function Splash() {
     <div
       ref={root}
       className={s.splash}
+      data-risen={risen || undefined}
       onMouseMove={followGlow}
       onMouseLeave={() => glow.current?.style.setProperty("opacity", "0")}
     >

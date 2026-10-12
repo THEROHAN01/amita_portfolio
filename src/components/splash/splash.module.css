@@ -95,13 +95,49 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  animation: splashIn 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* ---------- Entrance: name first, then the portrait rises ---------- */
+@keyframes portraitRise {
+  0% {
+    opacity: 0;
+    transform: translateY(55%) scaleY(1.12);
+    filter: blur(22px);
+  }
+  35% {
+    opacity: 1;
+  }
+  72% {
+    transform: translateY(-1.5%) scaleY(0.99);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes bubblePop {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.92);
+  }
 }
 
 .avatarSlot {
   position: relative;
   z-index: 1;
   height: 100%;
+  /* Waits below the fold, invisible, until the splash is marked risen. */
+  opacity: 0;
+  transform: translateY(55%);
+  transform-origin: 50% 100%;
+  will-change: transform, filter;
+}
+
+.splash[data-risen] .avatarSlot {
+  animation: portraitRise 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 .avatar {
@@ -111,6 +147,7 @@
 /* ---------- The name ---------- */
 .fish {
   position: absolute;
+  animation: splashIn 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   left: 0;
   right: 0;
   top: 35.6%;
@@ -170,6 +207,7 @@
 .bubbleBox {
   position: relative;
   display: block;
+  opacity: 0;
   isolation: isolate;
   padding: 12px 22px;
   color: #fff;
@@ -180,6 +218,11 @@
   text-transform: none;
   text-shadow: 0 1px 2px rgb(0 0 0 / 0.25);
   filter: drop-shadow(0 10px 22px rgb(0 0 0 / 0.28));
+}
+
+.splash[data-risen] .bubbleBox {
+  opacity: 1;
+  animation: bubblePop 0.35s var(--ease-spring) 0.9s both;
 }
 
 .bubbleGlass {

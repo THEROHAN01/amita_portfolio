@@ -8,6 +8,8 @@ const GREETING = "Hi I am..";
 const PROMPT = "Start by scrolling";
 const WAKE = "yes I am up";
 const PROMPT_DELAY = 2600;
+/** The greeting holds longer at first: the bubble only appears once the portrait has risen. */
+const GREETING_HOLD = 4200;
 
 /** Rounded rect with a tail on the right edge pointing at the avatar. */
 function bubblePath(w: number, h: number) {
@@ -33,7 +35,7 @@ export function SpeechBubble({ avatar }: SpeechBubbleProps) {
 
   // Greeting → prompt; after a nap → "yes I am up" → prompt.
   useEffect(() => {
-    let timer = setTimeout(() => setText(PROMPT), PROMPT_DELAY);
+    let timer = setTimeout(() => setText(PROMPT), GREETING_HOLD);
     let sleptAt = 0;
     const off = onSleepChange((sleeping) => {
       setAsleep(sleeping);
