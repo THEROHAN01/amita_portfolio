@@ -1,10 +1,4 @@
-import type { Box, Meta } from "./types";
-
-interface BoardDef extends Meta {
-  id: string;
-  num: string;
-  box: Box;
-}
+import type { BoardDef } from "./types";
 
 /** About-view artboards: placement + inspectable metadata. Body copy lives below. */
 export const aboutBoards = {

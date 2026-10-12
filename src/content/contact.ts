@@ -1,11 +1,5 @@
 import { profile } from "./profile";
-import type { Box, Meta } from "./types";
-
-interface BoardDef extends Meta {
-  id: string;
-  num: string;
-  box: Box;
-}
+import type { BoardDef } from "./types";
 
 export const contactBoards = {
   hello: {

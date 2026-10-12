@@ -1,0 +1,78 @@
+/* Layer offsets are percentages of the 768 × 1376 source portrait. */
+.avatar {
+  position: relative;
+  aspect-ratio: 768 / 1376;
+  container-type: inline-size;
+  user-select: none;
+}
+
+.layer {
+  object-fit: contain;
+}
+
+.eye {
+  position: absolute;
+  width: 7.292%;
+  height: 1.744%;
+  clip-path: ellipse(50% 50% at 50% 50%);
+}
+.eyeL {
+  left: 38.542%;
+  top: 23.837%;
+}
+.eyeR {
+  left: 55.859%;
+  top: 23.765%;
+}
+
+.iris {
+  position: absolute;
+  width: 53.571%;
+  height: 125%;
+  will-change: transform;
+}
+.irisL {
+  left: 25%;
+  top: -16.667%;
+}
+.irisR {
+  left: 10.714%;
+  top: -12.5%;
+}
+
+.lid {
+  position: absolute;
+  width: 8.594%;
+  height: 2.471%;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.lidL {
+  left: 37.891%;
+  top: 23.474%;
+}
+.lidR {
+  left: 55.208%;
+  top: 23.401%;
+}
+
+.zzz {
+  position: absolute;
+  left: 70%;
+  top: 6%;
+  width: 26%;
+  height: 18%;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: #f3ece6;
+}
+
+.zzz span {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+}

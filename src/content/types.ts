@@ -23,6 +23,13 @@ export interface Meta {
   outcome?: string;
 }
 
+/** Any artboard on the canvas: identity, placement and inspectable metadata. */
+export interface BoardDef extends Meta {
+  id: string;
+  num: string;
+  box: Box;
+}
+
 /** Ids of the hand-drawn mock thumbnails in components/views/work/thumbs. */
 export type ThumbId =
   | "brand-a"
@@ -57,12 +64,9 @@ export interface WorkFrame extends Meta {
   link?: { href: string; label: string };
 }
 
-export interface WorkBoard extends Meta {
-  id: string;
-  num: string;
+export interface WorkBoard extends BoardDef {
   /** Pill text in the board header. */
   tagline: string;
-  box: Box;
   /** CSS grid-template for the frame area. */
   grid: string;
   /** "row" frames put the caption beside the thumbnail instead of below. */

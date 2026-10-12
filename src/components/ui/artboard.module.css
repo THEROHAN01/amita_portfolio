@@ -1,0 +1,131 @@
+.board {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-md);
+  color: var(--plum-900);
+  cursor: pointer;
+}
+
+.board:hover {
+  outline: 2px solid var(--board-focus, var(--ink));
+  outline-offset: 4px;
+}
+
+/* Tones */
+.paper {
+  background: var(--plum-50);
+}
+.white {
+  background: #fff;
+}
+.plum {
+  background: var(--plum-500);
+  color: #fff;
+}
+.night {
+  background: var(--plum-900);
+  color: #fff;
+}
+
+/* Name label floating above the board, Figma style */
+.label {
+  position: absolute;
+  left: 0;
+  top: -36px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  white-space: nowrap;
+  color: var(--ink);
+}
+
+.labelNum,
+.labelTitle {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: 0.1em;
+}
+
+.labelNum {
+  color: var(--label-num, var(--ink));
+}
+
+.labelTitle {
+  text-transform: uppercase;
+}
+
+.labelSize {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: color-mix(in srgb, var(--ink) 50%, transparent);
+}
+
+/* Header row: pill + aside */
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: var(--plum-500);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pillInverse {
+  background: #fff;
+  color: var(--plum-600);
+}
+
+.aside {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--plum-600);
+  white-space: nowrap;
+}
+
+.plum .aside {
+  color: var(--plum-100);
+}
+.night .aside {
+  color: var(--plum-300);
+}
+
+.title {
+  position: relative;
+  margin-top: 18px;
+  font-size: 52px;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.rule {
+  height: 2px;
+  margin: 18px 0 22px;
+  background: var(--plum-200);
+}
+
+.night .rule {
+  background: var(--plum-700);
+}
+
+.body {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
